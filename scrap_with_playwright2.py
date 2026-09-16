@@ -51,7 +51,7 @@ with sync_playwright() as p:
         "Availability" : fin_instock
     })
 
-    path = r"C:\Users\Lenovo\OneDrive\Documents\dataframe files\books.csv"
+    path = "book.csv"
     df.to_csv(path, index=False, encoding="utf-8-sig")
     
 

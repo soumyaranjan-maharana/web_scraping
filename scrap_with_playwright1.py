@@ -33,6 +33,6 @@ with sync_playwright() as p:
     })
 
    
-    df.to_csv(r"C:\Users\Lenovo\OneDrive\Documents\dataframe files\quotes2.csv", index=False, encoding="utf-8-sig")
+    df.to_csv("quotes2.csv", index=False, encoding="utf-8-sig")
     browser.close()
     
