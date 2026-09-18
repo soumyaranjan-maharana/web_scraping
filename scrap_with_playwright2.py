@@ -21,8 +21,15 @@ with sync_playwright() as p:
         rating = []
         title = []
 
+        rating_map = {
+            "One" : 1,
+            "Two" : 2,
+            "Three" : 3,
+            "Four"  : 4,
+            "Five" : 5
+            }
+
         for i in range(products.count()):
-            rating_map = {"One" : 1, "Two" : 2, "Three" : 3, "Four"  : 4, "Five" : 5}
             product = products.nth(i)
             loc_rating_class = product.locator(".star-rating").get_attribute("class")
             rating.append(rating_map[loc_rating_class.split()[-1]])
@@ -41,6 +48,7 @@ with sync_playwright() as p:
 
         if next_btn.is_visible():
             next_btn.click()
+            page.wait_for_load_state("domcontentloaded")
         else:
             break
 

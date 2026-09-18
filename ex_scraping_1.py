@@ -23,4 +23,4 @@ for i, q in enumerate(quotes):
 for i, a in enumerate(author):
     df.loc[i, "Author"] = a.text
 
-df.to_csv(r"C:\Users\Lenovo\OneDrive\Documents\dataframe files\quates.csv", index=False, encoding="utf-8-sig")
+df.to_csv("quates.csv", index=False, encoding="utf-8-sig")
