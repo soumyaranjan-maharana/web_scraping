@@ -15,7 +15,7 @@ async def mult_scrape(page, urls):
 
         except Exception as e:
             description_text, sku_text, stock_raw = None, None, None
-            print(f"Skipped {u}: {e}")
+            print(f"Skipped {url}: {e}")
 
         res.append((index,description_text, sku_text, stock_raw))
 
@@ -43,8 +43,8 @@ async def scrape():
             count = await products.count()
             for i in range(count):
                 product = products.nth(i)
-                img_loc = await product.locator("img").get_attribute("src")
-                pro_loc = await product.get_by_role("link").get_attribute("href")
+                img_loc = await product.locator("img").first.get_attribute("src")
+                pro_loc = await product.get_by_role("link").first.get_attribute("href")
                 img_url.append(img_loc)
                 product_url.append(pro_loc)
 
