@@ -21,5 +21,5 @@ class QuotesSpider(scrapy.Spider):
             yield items
 
         nxt_page = response.css(".next a::attr(href)").get()
-        if nxt_page is not None:
+        if nxt_page:
             yield response.follow(nxt_page, self.parse)
